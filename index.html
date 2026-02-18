@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightfall Network | Experience the Custom Frontier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6a5acd; /* Slate Blue / Purple */
+            --accent-color: #9d8df1;
+            --bg-dark: #0f0f12;
+            --bg-card: #1a1a20;
+            --text-light: #f4f4f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: rgba(15, 15, 18, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container img {
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1627389955609-bc0234399e7b?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 0px 0px 20px rgba(106, 90, 205, 0.6);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s transform;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-discord {
+            background-color: #5865F2;
+            color: white;
+        }
+
+        .ip-copy {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border: 1px dashed var(--accent-color);
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        /* --- Features Section --- */
+        .features {
+            padding: 80px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #2a2a35;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            border-color: var(--primary-color);
+            background: #202028;
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 40px 10%;
+            text-align: center;
+            border-top: 1px solid #333;
+            background: #0a0a0c;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="https://cdn.discordapp.com/attachments/1473400605304160297/1473400682446065889/NLogo.png?ex=69976451&is=699612d1&hm=44f829006ba8371245dfc5f5f8c39f174effe92508594489a5aeb43a7b0034d4" alt="Nightfall Logo">
+            <h2>Nightfall</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="https://discord.gg/KVv7ta68NG">Discord</a></li>
+            <li><a href="#">Store</a></li>
+            <li><a href="#">Wiki</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Nightfall Network</h1>
+        <p>A bespoke Minecraft experience where innovation meets gameplay. Dive into a world featuring handcrafted plugins, unique textures, and a custom-coded ecosystem built from the ground up.</p>
+        
+        <div class="btn-group">
+            <div class="ip-copy" onclick="copyIP()">
+                <i class="fas fa-copy"></i> IP: <strong>nightfallnetwork.xyz</strong>
+            </div>
+            <a href="https://discord.gg/KVv7ta68NG" class="btn btn-discord"><i class="fab fa-discord"></i> Join Discord</a>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="card">
+            <i class="fas fa-code"></i>
+            <h3>Custom Code</h3>
+            <p>We don't just use public plugins. Our developers create unique systems tailored specifically to our gameplay, ensuring a smooth and exclusive experience you won't find elsewhere.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-swords"></i>
+            <h3>Unique Assets</h3>
+            <p>Experience Minecraft like never before with our custom items and 3D textures. Our dedicated resource pack enhances every swing of a sword and every block you place.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-robot"></i>
+            <h3>Advanced Integration</h3>
+            <p>Our custom management and community Discord bots keep the bridge between the game and the community seamless. Stay connected, track stats, and manage your profile from anywhere.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Nightfall Network. Not affiliated with Mojang AB or Microsoft.</p>
+    </footer>
+
+    <script>
+        function copyIP() {
+            const ip = "nightfallnetwork.xyz";
+            navigator.clipboard.writeText(ip);
+            alert("IP Copied to clipboard: " + ip);
+        }
+    </script>
+</body>
+</html>
